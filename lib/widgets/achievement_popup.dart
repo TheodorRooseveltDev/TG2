@@ -81,6 +81,7 @@ class _AchievementPopupState extends State<AchievementPopup>
               gradient: LinearGradient(
                 colors: [
                   AppTheme.warning,
+                  // ignore: deprecated_member_use
                   AppTheme.warning.withOpacity(0.8),
                 ],
                 begin: Alignment.topLeft,
@@ -89,6 +90,7 @@ class _AchievementPopupState extends State<AchievementPopup>
               borderRadius: BorderRadius.circular(AppTheme.radiusLarge),
               boxShadow: [
                 BoxShadow(
+                  // ignore: deprecated_member_use
                   color: AppTheme.warning.withOpacity(0.5),
                   blurRadius: 20,
                   spreadRadius: 5,
@@ -110,6 +112,7 @@ class _AchievementPopupState extends State<AchievementPopup>
                         width: 60,
                         height: 60,
                         decoration: BoxDecoration(
+                          // ignore: deprecated_member_use
                           color: Colors.white.withOpacity(0.3),
                           shape: BoxShape.circle,
                         ),
@@ -119,6 +122,7 @@ class _AchievementPopupState extends State<AchievementPopup>
                             // Sparkle effect
                             Icon(
                               Icons.auto_awesome,
+                              // ignore: deprecated_member_use
                               color: Colors.white.withOpacity(0.5),
                               size: 48,
                             ),
@@ -168,6 +172,7 @@ class _AchievementPopupState extends State<AchievementPopup>
                             Text(
                               widget.achievement.description,
                               style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                                    // ignore: deprecated_member_use
                                     color: Colors.white.withOpacity(0.9),
                                   ),
                               maxLines: 2,
@@ -180,6 +185,7 @@ class _AchievementPopupState extends State<AchievementPopup>
                                 vertical: 4,
                               ),
                               decoration: BoxDecoration(
+                                // ignore: deprecated_member_use
                                 color: Colors.white.withOpacity(0.2),
                                 borderRadius: BorderRadius.circular(AppTheme.radiusSmall),
                               ),
@@ -211,6 +217,7 @@ class _AchievementPopupState extends State<AchievementPopup>
                         onPressed: _dismiss,
                         icon: Icon(
                           Icons.close,
+                          // ignore: deprecated_member_use
                           color: Colors.white.withOpacity(0.8),
                         ),
                         padding: EdgeInsets.zero,
@@ -227,22 +234,4 @@ class _AchievementPopupState extends State<AchievementPopup>
     );
   }
 
-  static void show(BuildContext context, Achievement achievement) {
-    final overlay = Overlay.of(context);
-    late OverlayEntry entry;
-
-    entry = OverlayEntry(
-      builder: (context) => Positioned(
-        top: MediaQuery.of(context).padding.top,
-        left: 0,
-        right: 0,
-        child: AchievementPopup(
-          achievement: achievement,
-          onDismiss: () => entry.remove(),
-        ),
-      ),
-    );
-
-    overlay.insert(entry);
-  }
 }

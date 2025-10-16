@@ -4,7 +4,6 @@ import '../theme/app_theme.dart';
 import '../models/recipe.dart';
 import '../models/achievement.dart';
 import '../services/data_service.dart';
-import '../services/achievement_service.dart';
 import '../widgets/lottie_animation.dart';
 import '../widgets/achievement_unlock_dialog.dart';
 import '../widgets/custom_icon.dart';
@@ -151,6 +150,7 @@ class _CookingScreenState extends State<CookingScreen> with SingleTickerProvider
               Container(
                 padding: const EdgeInsets.all(AppTheme.spacingS),
                 decoration: BoxDecoration(
+                  // ignore: deprecated_member_use
                   color: AppTheme.success.withOpacity(0.1),
                   borderRadius: BorderRadius.circular(AppTheme.radiusSmall),
                 ),
@@ -188,6 +188,7 @@ class _CookingScreenState extends State<CookingScreen> with SingleTickerProvider
               Container(
                 padding: const EdgeInsets.all(AppTheme.spacingM),
                 decoration: BoxDecoration(
+                  // ignore: deprecated_member_use
                   color: AppTheme.secondary.withOpacity(0.1),
                   borderRadius: BorderRadius.circular(AppTheme.radiusSmall),
                 ),
