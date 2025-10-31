@@ -5,6 +5,7 @@ class UserPreferences {
   final List<String> preferredCuisines;
   final bool soundEffects;
   final bool vibration;
+  final bool notifications;
 
   UserPreferences({
     this.dietaryTypes = const [],
@@ -13,6 +14,7 @@ class UserPreferences {
     this.preferredCuisines = const [],
     this.soundEffects = true,
     this.vibration = true,
+    this.notifications = true,
   });
 
   Map<String, dynamic> toJson() {
@@ -23,6 +25,7 @@ class UserPreferences {
       'preferredCuisines': preferredCuisines,
       'soundEffects': soundEffects,
       'vibration': vibration,
+      'notifications': notifications,
     };
   }
 
@@ -34,6 +37,7 @@ class UserPreferences {
       preferredCuisines: List<String>.from(json['preferredCuisines'] ?? []),
       soundEffects: json['soundEffects'] ?? true,
       vibration: json['vibration'] ?? true,
+      notifications: json['notifications'] ?? true,
     );
   }
 
@@ -44,6 +48,7 @@ class UserPreferences {
     List<String>? preferredCuisines,
     bool? soundEffects,
     bool? vibration,
+    bool? notifications,
   }) {
     return UserPreferences(
       dietaryTypes: dietaryTypes ?? this.dietaryTypes,
@@ -52,6 +57,7 @@ class UserPreferences {
       preferredCuisines: preferredCuisines ?? this.preferredCuisines,
       soundEffects: soundEffects ?? this.soundEffects,
       vibration: vibration ?? this.vibration,
+      notifications: notifications ?? this.notifications,
     );
   }
 }

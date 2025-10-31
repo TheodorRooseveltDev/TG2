@@ -68,9 +68,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           ),
           ElevatedButton(
             onPressed: () => Navigator.of(context).pop(true),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: AppTheme.error,
-            ),
+            style: ElevatedButton.styleFrom(backgroundColor: AppTheme.error),
             child: const Text('Reset'),
           ),
         ],
@@ -93,19 +91,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Settings'),
-        centerTitle: true,
-      ),
+      appBar: AppBar(title: const Text('Settings'), centerTitle: true),
       body: SafeArea(
         child: ListView(
           padding: const EdgeInsets.all(AppTheme.spacingL),
           children: [
             // Achievements Section
-            Text(
-              'Progress',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
+            Text('Progress', style: Theme.of(context).textTheme.headlineMedium),
             const SizedBox(height: AppTheme.spacingM),
 
             _buildSettingCard(
@@ -113,7 +105,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
               '${_stats.achievements.where((a) => a.claimed).length}/${_stats.achievements.length} claimed',
               Stack(
                 children: [
-                  const Icon(Icons.chevron_right, color: AppTheme.textSecondary),
+                  const Icon(
+                    Icons.chevron_right,
+                    color: AppTheme.textSecondary,
+                  ),
                   if (_dataService.hasUnclaimedAchievements(_stats))
                     Positioned(
                       right: 0,
@@ -130,13 +125,15 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ],
               ),
               onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (_) => const AchievementsScreen(),
-                  ),
-                ).then((_) {
-                  _loadStats();
-                });
+                Navigator.of(context)
+                    .push(
+                      MaterialPageRoute(
+                        builder: (_) => const AchievementsScreen(),
+                      ),
+                    )
+                    .then((_) {
+                      _loadStats();
+                    });
               },
             ),
 
@@ -155,9 +152,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               Switch(
                 value: _preferences.soundEffects,
                 onChanged: (value) {
-                  _savePreferences(
-                    _preferences.copyWith(soundEffects: value),
-                  );
+                  _savePreferences(_preferences.copyWith(soundEffects: value));
                 },
                 activeThumbColor: AppTheme.secondary,
               ),
@@ -171,9 +166,21 @@ class _SettingsScreenState extends State<SettingsScreen> {
               Switch(
                 value: _preferences.vibration,
                 onChanged: (value) {
-                  _savePreferences(
-                    _preferences.copyWith(vibration: value),
-                  );
+                  _savePreferences(_preferences.copyWith(vibration: value));
+                },
+                activeThumbColor: AppTheme.secondary,
+              ),
+            ),
+
+            const SizedBox(height: AppTheme.spacingS),
+
+            _buildSettingCard(
+              'Notifications',
+              'Receive push notifications',
+              Switch(
+                value: _preferences.notifications,
+                onChanged: (value) {
+                  _savePreferences(_preferences.copyWith(notifications: value));
                 },
                 activeThumbColor: AppTheme.secondary,
               ),
@@ -182,10 +189,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             const SizedBox(height: AppTheme.spacingXL),
 
             // Profile Section
-            Text(
-              'Profile',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
+            Text('Profile', style: Theme.of(context).textTheme.headlineMedium),
             const SizedBox(height: AppTheme.spacingM),
 
             _buildSettingCard(
@@ -220,10 +224,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             const SizedBox(height: AppTheme.spacingXL),
 
             // Data Section
-            Text(
-              'Data',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
+            Text('Data', style: Theme.of(context).textTheme.headlineMedium),
             const SizedBox(height: AppTheme.spacingM),
 
             _buildDangerButton(
@@ -236,17 +237,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
             const SizedBox(height: AppTheme.spacingXL),
 
             // About Section
-            Text(
-              'About',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
+            Text('About', style: Theme.of(context).textTheme.headlineMedium),
             const SizedBox(height: AppTheme.spacingM),
 
-            _buildSettingCard(
-              'Version',
-              '1.0.0',
-              const SizedBox(),
-            ),
+            _buildSettingCard('Version', '1.0.0', const SizedBox()),
 
             const SizedBox(height: AppTheme.spacingS),
 
@@ -281,8 +275,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   Text(
                     'Sweet Spin \'n\' Cook',
                     style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                          color: AppTheme.textSecondary,
-                        ),
+                      color: AppTheme.textSecondary,
+                    ),
                   ),
                   Text(
                     'Making cooking fun and spontaneous',
@@ -318,15 +312,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    title,
-                    style: Theme.of(context).textTheme.titleMedium,
-                  ),
+                  Text(title, style: Theme.of(context).textTheme.titleMedium),
                   const SizedBox(height: AppTheme.spacingXS),
-                  Text(
-                    subtitle,
-                    style: Theme.of(context).textTheme.bodyMedium,
-                  ),
+                  Text(subtitle, style: Theme.of(context).textTheme.bodyMedium),
                 ],
               ),
             ),
@@ -362,16 +350,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 children: [
                   Text(
                     title,
-                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                          color: AppTheme.error,
-                        ),
+                    style: Theme.of(
+                      context,
+                    ).textTheme.titleMedium?.copyWith(color: AppTheme.error),
                   ),
                   const SizedBox(height: AppTheme.spacingXS),
                   Text(
                     subtitle,
-                    style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                          color: AppTheme.error,
-                        ),
+                    style: Theme.of(
+                      context,
+                    ).textTheme.bodyMedium?.copyWith(color: AppTheme.error),
                   ),
                 ],
               ),
@@ -429,7 +417,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       'Paleo',
       'Low-Carb',
     ];
-    
+
     final selectedItems = List<String>.from(_preferences.dietaryTypes);
 
     final result = await showDialog<List<String>>(
@@ -496,7 +484,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       'Shellfish',
       'Sesame',
     ];
-    
+
     final selectedItems = List<String>.from(_preferences.allergens);
 
     final result = await showDialog<List<String>>(
@@ -556,7 +544,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       MaterialPageRoute(
         builder: (context) => const WebViewScreen(
           title: 'Privacy Policy',
-          url: 'https://example.com/privacy',
+          url: 'https://sweetspinandcook.com/privacy/',
         ),
       ),
     );
@@ -567,7 +555,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       MaterialPageRoute(
         builder: (context) => const WebViewScreen(
           title: 'Terms & Conditions',
-          url: 'https://example.com/terms',
+          url: 'https://sweetspinandcook.com/terms/',
         ),
       ),
     );

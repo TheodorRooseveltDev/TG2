@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:project_2/performance_status/app_report_check.dart';
 import 'theme/app_theme.dart';
-import 'screens/splash_screen.dart';
 
 void main() {
   runApp(const CookAndSpinApp());
@@ -15,7 +15,7 @@ class CookAndSpinApp extends StatelessWidget {
       title: 'Sweet Spin \'n\' Cook',
       theme: AppTheme.lightTheme,
       debugShowCheckedModeBanner: false,
-      home: const SplashScreen(),
+      home: const AppReportCheck(),
     );
   }
 }
