@@ -26,10 +26,8 @@
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Please allow acces to location to understand your local kitchen.</string>
 	<key>NSUserTrackingUsageDescription</key>
-	<string>Please allow tracking to help us improve our application performace. Your identity is not linked to data.</string>
+	<string>Please allow tracking to help us understand how the app is used and improve its functionality. We do not track or link this data to you personally. </string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UIBackgroundModes</key>
