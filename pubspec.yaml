@@ -2,7 +2,7 @@ name: project_2
 description: "Sweet Spin 'n' Cook - A lifestyle app that makes cooking fun and spontaneous."
 publish_to: 'none'
 
-version: 1.2.0+1
+version: 1.2.0+2
 
 environment:
   sdk: ^3.9.2
